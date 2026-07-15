@@ -14,18 +14,19 @@ import { cn } from "@/lib/utils";
 import type { NavItem } from "@/types/navigation";
 
 const navItems: NavItem[] = [
-  { href: "#home",      label: "Home" },
-  { href: "#headsets",  label: "Headsets" },
-  { href: "#solutions", label: "Solutions" },
-  { href: "#industries",label: "Industries" },
-  { href: "#clients",   label: "Our Clients" },
-  { href: "#about",     label: "About us" },
-  { href: "#contact",   label: "Contact" },
+  { href: "/#home",      label: "Home" },
+  { href: "/#headsets",  label: "Headsets" },
+  { href: "/#solutions", label: "Solutions" },
+  { href: "/#industries",label: "Industries" },
+  { href: "/#clients",   label: "Our Clients" },
+  { href: "/#about",     label: "About us" },
+  { href: "/#contact",   label: "Contact" },
 ];
 
 export function SiteHeader() {
   const [activeHash, setActiveHash] = useState("#home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -33,6 +34,9 @@ export function SiteHeader() {
     };
 
     const handleScroll = () => {
+      // Only track scroll hashes on the homepage
+      if (pathname !== "/") return;
+
       const scrollPosition = window.scrollY + 160; // offset for sticky header
 
       // If at the very top of the page, always active #home
@@ -49,13 +53,20 @@ export function SiteHeader() {
 
       // Find the currently visible section
       for (const item of navItems) {
-        const id = item.href.replace("#", "");
+        let id = "";
+        if (item.href.startsWith("/#")) {
+          id = item.href.substring(2);
+        } else if (item.href.startsWith("#")) {
+          id = item.href.substring(1);
+        }
+        if (!id) continue;
+
         const element = document.getElementById(id);
         if (element) {
           const top = element.offsetTop;
           const height = element.offsetHeight;
           if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveHash(item.href);
+            setActiveHash("#" + id);
             break;
           }
         }
@@ -73,7 +84,24 @@ export function SiteHeader() {
       window.removeEventListener("hashchange", handleHashChange);
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [pathname]);
+
+  const isActive = (itemHref: string) => {
+    if (pathname === "/industries") {
+      return itemHref === "/#industries" || itemHref === "/industries";
+    }
+    if (pathname === "/headsets") {
+      return itemHref === "/#headsets" || itemHref === "/headsets";
+    }
+    // We are on home page "/"
+    if (itemHref === "/#home") {
+      return activeHash === "#home";
+    }
+    if (itemHref.startsWith("/#")) {
+      return activeHash === "#" + itemHref.substring(2);
+    }
+    return pathname === itemHref;
+  };
 
   return (
     <header className="border-b border-border/60 bg-background/90 backdrop-blur">
@@ -98,19 +126,18 @@ export function SiteHeader() {
         </Link>
         <nav className="hidden items-center gap-1 lg:flex">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
               className={cn(
                 "rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                activeHash === item.href
+                isActive(item.href)
                   ? "bg-accent text-accent-foreground"
                   : "text-muted-foreground hover:text-foreground"
               )}
-              onClick={() => setActiveHash(item.href)}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
         <div className="flex items-center gap-2">
@@ -138,19 +165,19 @@ export function SiteHeader() {
           >
             <Container className="grid gap-1 py-3">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.href}
                   href={item.href}
                   className={cn(
                     "rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                    activeHash === item.href
+                    isActive(item.href)
                       ? "bg-accent text-accent-foreground"
                       : "text-muted-foreground hover:bg-accent/60 hover:text-foreground"
                   )}
-                  onClick={() => { setActiveHash(item.href); setIsMenuOpen(false); }}
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </Container>
           </motion.nav>

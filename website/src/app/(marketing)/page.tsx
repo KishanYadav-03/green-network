@@ -13,6 +13,7 @@ import {
   ShieldCheck,
   Trophy,
   Users,
+  Activity,
 } from "lucide-react";
 
 import { FadeIn } from "@/components/motion/fade-in";
@@ -191,6 +192,86 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════
+          INDUSTRIES PREVIEW SECTION
+      ══════════════════════════════════════ */}
+      <section id="industries" className="scroll-mt-20 border-t border-border py-14 bg-muted/10">
+        <Container>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10">
+            <FadeIn>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#2563eb]">
+                — Tailored Solutions
+              </p>
+              <h2 className="mt-2 text-3xl font-extrabold tracking-tight">
+                Industries We Serve
+              </h2>
+              <p className="mt-3 text-sm text-muted-foreground max-w-xl">
+                We configure dedicated audio setups to resolve specific communication challenges in active environments, from high-density offices to clinical hubs.
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <Button asChild className="mt-4 md:mt-0 rounded-full bg-[#2563eb] text-white hover:bg-[#1d4ed8] shadow-sm">
+                <Link href="/industries">
+                  Explore All Industries
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </FadeIn>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              {
+                title: "Contact Centers",
+                desc: "High-performance active noise cancellation that filters ambient voice chatter to protect focus and call quality.",
+                icon: Headset,
+                img: "/assets/industries/contact-center.png",
+              },
+              {
+                title: "Corporate Offices",
+                desc: "Agile wireless systems and UC integrations that enable smooth team collaboration and quick meeting setup.",
+                icon: Building2,
+                img: "/assets/industries/corporate-office.png",
+              },
+              {
+                title: "Healthcare",
+                desc: "Sanitary, lightweight earwear engineered for patient privacy, long wear shifts, and easy chemical disinfection.",
+                icon: Activity,
+                img: "/assets/industries/healthcare.png",
+              },
+            ].map((item, index) => (
+              <FadeIn key={item.title} delay={index * 0.06}>
+                <div className="group h-full flex flex-col rounded-2xl border border-border bg-card overflow-hidden shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#2563eb]/40 hover:shadow-md">
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-800">
+                    <img
+                      src={item.img}
+                      alt={item.title}
+                      className="absolute inset-0 h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-3 left-3 flex h-9 w-9 items-center justify-center rounded-lg bg-background/95 shadow-sm text-[#2563eb] backdrop-blur-sm">
+                      <item.icon className="h-4.5 w-4.5" />
+                    </div>
+                  </div>
+                  <div className="flex flex-1 flex-col p-5 text-left">
+                    <h3 className="text-base font-bold tracking-tight">{item.title}</h3>
+                    <p className="mt-2 text-xs leading-relaxed text-muted-foreground flex-1">
+                      {item.desc}
+                    </p>
+                    <Link
+                      href="/industries"
+                      className="mt-4 inline-flex items-center text-xs font-semibold text-[#2563eb] hover:underline"
+                    >
+                      Show More
+                      <ArrowRight className="ml-1 h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                    </Link>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ══════════════════════════════════════
           BRAND MARQUEE
       ══════════════════════════════════════ */}
       <div id="clients" className="scroll-mt-20 border-y border-border bg-muted/20 py-14">
@@ -301,6 +382,66 @@ export default function HomePage() {
                   <div key={point} className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#2563eb]" />
                     <p className="text-sm text-muted-foreground">{point}</p>
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
+        </Section>
+
+        {/* ISO Certification */}
+        <Section className="py-16 md:py-20 bg-slate-50/60 dark:bg-slate-900/10 border-t border-border">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            {/* Certificate Image */}
+            <FadeIn className="flex justify-center">
+              <div className="relative group max-w-xs w-full rounded-3xl border border-border bg-card p-5 shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:border-[#2563eb]/30">
+                <div className="relative rounded-2xl overflow-hidden bg-white dark:bg-slate-50 flex items-center justify-center p-4 aspect-[3/4]">
+                  <img
+                    src="/assets/image004.jpg"
+                    alt="ISO 9001:2015 Quality Management Certification — Green Network Telecom"
+                    className="max-h-full max-w-full object-contain group-hover:scale-[1.03] transition-transform duration-500"
+                  />
+                </div>
+                <div className="absolute top-7 right-7 rounded-full bg-[#2563eb] text-white text-[9px] font-extrabold px-3 py-1 uppercase tracking-widest shadow-lg">
+                  ✓ Certified
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Text side */}
+            <FadeIn delay={0.12}>
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#2563eb]">
+                Quality Assurance
+              </p>
+              <h2 className="mt-3 text-3xl font-extrabold tracking-tight md:text-4xl">
+                ISO 9001:2015{" "}
+                <span className="text-[#2563eb]">Certified Operations</span>
+              </h2>
+              <p className="mt-5 leading-7 text-muted-foreground">
+                Green Network is committed to delivering world-class service standards, operational
+                integrity, and customer satisfaction. Our{" "}
+                <strong className="text-foreground">ISO 9001:2015</strong> registration certifies
+                that our quality management systems conform to internationally recognised benchmark criteria.
+              </p>
+              <p className="mt-4 leading-7 text-muted-foreground">
+                This certification underscores our ongoing dedication to consistent product delivery,
+                professional engineering support, and continuous improvement across all our regional offices pan-India.
+              </p>
+              <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  { title: "Standardised Quality", desc: "Rigorous operational audits & review cycles", icon: ShieldCheck },
+                  { title: "Global Benchmarks", desc: "Aligned with international quality standards", icon: Globe },
+                  { title: "Consistent Delivery", desc: "Uniform service excellence across all offices", icon: CheckCircle2 },
+                  { title: "Continuous Improvement", desc: "Ongoing process refinement & optimisation", icon: Trophy },
+                ].map(({ title, desc, icon: Icon }) => (
+                  <div key={title} className="flex items-start gap-3 rounded-xl border border-border bg-card px-4 py-3.5 shadow-sm">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#2563eb]/10">
+                      <Icon className="h-4 w-4 text-[#2563eb]" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-foreground">{title}</p>
+                      <p className="text-xs text-muted-foreground mt-0.5">{desc}</p>
+                    </div>
                   </div>
                 ))}
               </div>

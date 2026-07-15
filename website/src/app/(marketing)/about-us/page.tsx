@@ -188,6 +188,70 @@ export default function AboutUsPage() {
         <BrandMarquee />
       </div>
 
+      {/* ── ISO Certification ── */}
+      <Section className="py-16 md:py-24 bg-slate-50/60 dark:bg-slate-900/10 border-b border-border">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          {/* Certificate Image */}
+          <FadeIn className="flex justify-center">
+            <div className="relative group max-w-xs w-full rounded-3xl border border-border bg-card p-5 shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:border-[#2563eb]/30">
+              <div className="relative rounded-2xl overflow-hidden bg-white dark:bg-slate-50 flex items-center justify-center p-4 aspect-[3/4]">
+                <img
+                  src="/assets/image004.jpg"
+                  alt="ISO 9001:2015 Quality Management Certification — Green Network Telecom"
+                  className="max-h-full max-w-full object-contain group-hover:scale-[1.03] transition-transform duration-500"
+                />
+              </div>
+              {/* Certified badge sticker */}
+              <div className="absolute top-7 right-7 rounded-full bg-[#2563eb] text-white text-[9px] font-extrabold px-3 py-1 uppercase tracking-widest shadow-lg">
+                ✓ Certified
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* Text side */}
+          <FadeIn delay={0.12}>
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#2563eb]">
+              Quality Assurance
+            </p>
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight md:text-4xl">
+              ISO 9001:2015{" "}
+              <span className="text-[#2563eb]">Certified Operations</span>
+            </h2>
+            <p className="mt-5 text-muted-foreground leading-7">
+              Green Network is committed to delivering world-class service standards, operational
+              integrity, and customer satisfaction. Our{" "}
+              <strong className="text-foreground">ISO 9001:2015</strong> registration certifies
+              that our quality management systems conform to internationally recognised benchmark
+              criteria.
+            </p>
+            <p className="mt-4 text-muted-foreground leading-7">
+              This certification underscores our ongoing dedication to consistent product delivery,
+              professional engineering support, and continuous improvement protocols across all our
+              regional offices and service centres pan-India.
+            </p>
+
+            <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { title: "Standardised Quality", desc: "Rigorous operational audits & review cycles", icon: ShieldCheck },
+                { title: "Global Benchmarks", desc: "Aligned with international quality standards", icon: Globe },
+                { title: "Consistent Delivery", desc: "Uniform service excellence across all offices", icon: CheckCircle2 },
+                { title: "Continuous Improvement", desc: "Ongoing process refinement & optimisation", icon: Trophy },
+              ].map(({ title, desc, icon: Icon }) => (
+                <div key={title} className="flex items-start gap-3 rounded-xl border border-border bg-card px-4 py-3.5 shadow-sm">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#2563eb]/10">
+                    <Icon className="h-4 w-4 text-[#2563eb]" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-foreground">{title}</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">{desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
+        </div>
+      </Section>
+
       {/* ── Infrastructure ── */}
       <Section className="py-16 md:py-24">
         <div className="grid gap-12 lg:grid-cols-2">

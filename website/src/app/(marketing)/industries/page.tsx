@@ -1,17 +1,12 @@
-import { Section } from "@/components/shared/section";
 import { buildMetadata } from "@/lib/seo";
+import { IndustriesClient } from "./industries-client";
 
 export const metadata = buildMetadata({
   title: "Industries",
+  description: "Communication headsets and audio solutions tailored for Contact Centers, Corporate Offices, Healthcare, Manufacturing, Education, Retail, and more.",
   path: "/industries",
 });
 
 export default function IndustriesPage() {
-  return (
-    <Section>
-      <h1 className="text-3xl font-semibold tracking-tight">Industries</h1>
-      <p className="mt-4 text-muted-foreground">Placeholder page.</p>
-    </Section>
-  );
+  return <IndustriesClient />;
 }
-

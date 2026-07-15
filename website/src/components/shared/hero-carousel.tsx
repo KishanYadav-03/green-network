@@ -17,6 +17,35 @@ interface Slide {
 }
 
 const slides: Slide[] = [
+  // ── NEW: Noise-Cancelling Headset Slides (prepended) ──────────────────────
+  {
+    image: "/assets/hero/anc_open_office.png",
+    tag: "Noise Cancellation",
+    title: "Stay Focused in Any Environment",
+    description: "Our professional noise-cancelling headsets block out the busiest open offices so you can work without distraction — crystal-clear audio, all day long.",
+    ctaText: "Explore Headsets",
+    ctaHref: "#solutions",
+    accentColor: "from-blue-600 to-cyan-500",
+  },
+  {
+    image: "/assets/hero/anc_call_center.png",
+    tag: "Call Centre Solutions",
+    title: "Every Call, Perfectly Clear",
+    description: "Purpose-built for high-density call centre floors — our headsets deliver HD voice clarity and active noise cancellation so every conversation counts.",
+    ctaText: "View Call Centre Headsets",
+    ctaHref: "#solutions",
+    accentColor: "from-indigo-600 to-blue-500",
+  },
+  {
+    image: "/assets/hero/anc_airport.png",
+    tag: "Work Anywhere",
+    title: "Productive Wherever Business Takes You",
+    description: "From airport lounges to busy co-working spaces — our enterprise headsets create a quiet, professional experience no matter how loud the world gets.",
+    ctaText: "Discover the Range",
+    ctaHref: "#solutions",
+    accentColor: "from-blue-500 to-violet-500",
+  },
+  // ── EXISTING Slides ───────────────────────────────────────────────────────
   {
     image: "/assets/hero/headset_call_center.png",
     tag: "Enterprise Headsets",
@@ -298,7 +327,7 @@ export function HeroCarousel() {
           </button>
           <div className="h-3 w-[1px] bg-white/25" />
           <span className="text-xs font-semibold tabular-nums text-white/80">
-            0{current + 1} <span className="text-white/40">/</span> 0{slides.length}
+            {String(current + 1).padStart(2, "0")} <span className="text-white/40">/</span> {String(slides.length).padStart(2, "0")}
           </span>
         </div>
       </div>

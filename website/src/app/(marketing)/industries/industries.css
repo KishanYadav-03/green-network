@@ -1,0 +1,104 @@
+/* ══════════════════════════════════════
+   Industries page – animations & helpers
+   ══════════════════════════════════════ */
+
+/* Hero animated audio-wave pulse */
+@keyframes wave-pulse {
+  0%, 100% { opacity: 0.25; transform: scaleY(1); }
+  50%      { opacity: 0.6;  transform: scaleY(1.5); }
+}
+
+.ind-wave-bar {
+  animation: wave-pulse 1.8s ease-in-out infinite;
+}
+
+/* Floating tech cards */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+.ind-float {
+  animation: float-y 4s ease-in-out infinite;
+}
+
+.ind-float-delay-1 { animation-delay: 0.5s; }
+.ind-float-delay-2 { animation-delay: 1.0s; }
+.ind-float-delay-3 { animation-delay: 1.5s; }
+.ind-float-delay-4 { animation-delay: 2.0s; }
+.ind-float-delay-5 { animation-delay: 2.5s; }
+.ind-float-delay-6 { animation-delay: 3.0s; }
+
+/* Timeline connector */
+.ind-timeline-line {
+  position: absolute;
+  left: 1.25rem; /* center of the 2.5rem circle */
+  top: 2.5rem;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, hsl(var(--border)), hsl(var(--border) / 0.3));
+}
+
+/* Gallery overlay */
+.ind-gallery-overlay {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.ind-gallery-card:hover .ind-gallery-overlay {
+  opacity: 1;
+}
+
+/* Industry card arrow */
+.ind-card-arrow {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  transform: translateX(-6px);
+}
+
+.ind-card:hover .ind-card-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Gradient placeholder for cards without real images */
+.ind-gradient-1  { background: linear-gradient(135deg, #1e3a5f, #2563eb); }
+.ind-gradient-2  { background: linear-gradient(135deg, #1e3a5f, #3b82f6); }
+.ind-gradient-3  { background: linear-gradient(135deg, #1a365d, #2563eb); }
+.ind-gradient-4  { background: linear-gradient(135deg, #1e3a5f, #1d4ed8); }
+.ind-gradient-5  { background: linear-gradient(135deg, #0f2645, #2563eb); }
+.ind-gradient-6  { background: linear-gradient(135deg, #172554, #3b82f6); }
+.ind-gradient-7  { background: linear-gradient(135deg, #1e3a5f, #1e40af); }
+.ind-gradient-8  { background: linear-gradient(135deg, #0f2645, #1d4ed8); }
+.ind-gradient-9  { background: linear-gradient(135deg, #172554, #2563eb); }
+.ind-gradient-10 { background: linear-gradient(135deg, #1a365d, #3b82f6); }
+
+/* Hero gradient background */
+.ind-hero-bg {
+  background: linear-gradient(160deg, #0a1628 0%, #0f1d3a 40%, #162a50 70%, #1e3a6e 100%);
+}
+
+/* CTA gradient background */
+.ind-cta-bg {
+  background: linear-gradient(135deg, #0a1628 0%, #0f1d3a 50%, #162a50 100%);
+}
+
+/* Subtle shimmer on feature cards */
+@keyframes shimmer-border {
+  0%   { border-color: hsl(var(--border)); }
+  50%  { border-color: hsl(217 90% 62% / 0.35); }
+  100% { border-color: hsl(var(--border)); }
+}
+
+.ind-benefit-card:hover {
+  animation: shimmer-border 2s ease-in-out infinite;
+}
+
+/* Smooth scale on gallery */
+.ind-gallery-card img {
+  transition: transform 0.5s ease;
+}
+
+.ind-gallery-card:hover img {
+  transform: scale(1.07);
+}

@@ -88,23 +88,9 @@ const offices = [
 export default function ContactPage() {
   return (
     <>
-      {/* ── Hero Banner ── */}
-      <div className="relative w-full overflow-hidden">
-        <Image
-          src="/assets/contact-hero.png"
-          alt="Contact Us — Green Network"
-          width={1400}
-          height={420}
-          priority
-          className="h-56 w-full object-cover object-center md:h-72"
-        />
-        {/* subtle dark gradient overlay for legibility */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/10" />
-      </div>
-
       {/* ── Intro strip ── */}
-      <div className="border-b border-border bg-[#2563eb]/8">
-        <Container className="py-8 text-center">
+      <div className="border-b border-border bg-slate-50/50 dark:bg-slate-950/20 py-16 md:py-24">
+        <Container className="text-center">
           <FadeIn>
             <p className="text-sm font-semibold uppercase tracking-widest text-[#2563eb]">
               We&apos;re here to help

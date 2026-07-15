@@ -84,25 +84,42 @@ export function SiteFooter() {
             <p className="text-sm leading-6 text-muted-foreground text-pretty max-w-sm">
               India&apos;s premiere marketing organisation delivering customer-friendly products and solutions in communications, AV, OA & IT.
             </p>
-            <div className="flex items-center gap-3 mt-2">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card text-muted-foreground hover:text-blue-500 hover:border-blue-500/30 transition-all duration-200"
-                aria-label="LinkedIn"
-              >
-                <LinkedinIcon />
-              </a>
-              <a
-                href="https://x.com"
-                target="_blank"
-                rel="noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-all duration-200"
-                aria-label="X (Twitter)"
-              >
-                <XIcon />
-              </a>
+            <div className="flex flex-wrap items-center gap-4 mt-2">
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card text-muted-foreground hover:text-blue-500 hover:border-blue-500/30 transition-all duration-200"
+                  aria-label="LinkedIn"
+                >
+                  <LinkedinIcon />
+                </a>
+                <a
+                  href="https://x.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-all duration-200"
+                  aria-label="X (Twitter)"
+                >
+                  <XIcon />
+                </a>
+              </div>
+              <div className="hidden sm:block h-6 w-px bg-border" />
+              {/* ISO Certification Badge */}
+              <div className="flex items-center gap-2.5 rounded-xl border border-border bg-card/60 p-1.5 pr-3 shadow-sm select-none">
+                <div className="relative h-9 w-7 overflow-hidden rounded bg-slate-50 flex items-center justify-center p-0.5 shrink-0">
+                  <img
+                    src="/assets/image004.jpg"
+                    alt="ISO 9001:2015 Certification"
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <div className="leading-tight text-left">
+                  <p className="text-[9px] font-extrabold uppercase tracking-wider text-foreground">ISO 9001:2015</p>
+                  <p className="text-[7px] font-bold text-muted-foreground">Certified Partner</p>
+                </div>
+              </div>
             </div>
           </div>
 
