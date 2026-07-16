@@ -70,7 +70,8 @@ export function SiteFooter() {
                 alt="Green Network logo"
                 width={200}
                 height={58}
-                className="h-10 w-auto object-contain object-left dark:brightness-110"
+                unoptimized
+                className="h-10 w-auto object-contain object-left dark:brightness-125"
               />
               <span className="flex flex-col leading-none">
                 <span className="text-sm font-extrabold tracking-[0.08em] uppercase text-foreground">
@@ -155,9 +156,9 @@ export function SiteFooter() {
               <p>
                 <span className="font-bold text-foreground">Green Network Telecom Pvt. Ltd.</span>
                 <br />
-                C-479, 3rd Floor, Vikaspuri,
+                301–302, DDA Local Shopping Complex,
                 <br />
-                New Delhi – 110018
+                C-Block, Vikaspuri, New Delhi – 110018
               </p>
               <div className="space-y-1">
                 <a

@@ -14,6 +14,7 @@ import {
   Trophy,
   Users,
   Activity,
+  UserRound,
 } from "lucide-react";
 
 import { FadeIn } from "@/components/motion/fade-in";
@@ -38,11 +39,10 @@ const stats = [
 
 const officeList = [
   { name: "New Delhi", type: "Head Office" },
-  { name: "Bangalore", type: "Regional Office" },
   { name: "Mumbai", type: "Regional Office" },
-  { name: "Pune", type: "Regional Office" },
+  { name: "Bangalore", type: "Regional Office" },
   { name: "Chennai", type: "Regional Office" },
-  { name: "Hyderabad", type: "Regional Office" },
+  { name: "Kolkata", type: "Regional Office" },
 ];
 
 const segments = [
@@ -58,54 +58,50 @@ const offices = [
   {
     city: "Delhi",
     address:
-      "Green Network Telecom Pvt. Ltd, C-9, 3rd Floor, New Krishna Park, Vikas Puri, New Delhi",
+      "301–302, DDA Local Shopping Complex, C-Block, Vikaspuri, New Delhi",
     pincode: "110018",
-    phone: "011-42461227",
-    email: "sales@green-network.in",
-    web: "www.green-network.in",
-  },
-  {
-    city: "Bangalore",
-    address:
-      "Green Network Telecom Pvt. Ltd, No.76, 1st Floor, 6th Main, Hemanth Nagar, Room, Marathahalli, Bangalore",
-    pincode: "560037",
-    phone: "9611122559",
-    email: "sales@green-network.in",
-    web: "www.green-network.in",
-  },
-  {
-    city: "Hyderabad",
-    address:
-      "Green Network Telecom Pvt. Ltd, No. H/2, Madhura Nagar, Opp Krishnakant Park",
-    pincode: "500038",
-    phone: "9611122559",
-    email: "sales@green-network.in",
-    web: "www.green-network.in",
-  },
-  {
-    city: "Chennai",
-    address:
-      "Green Network Telecom Pvt. Ltd, No.04, Maruthi Nagar, Thoraipakkam, Chennai",
-    pincode: "600097",
-    phone: "9611122559",
+    phone: "+91 95555 95596",
+    contact: "Mr. Raj Luthra",
     email: "sales@green-network.in",
     web: "www.green-network.in",
   },
   {
     city: "Mumbai",
     address:
-      "Green Network Telecom Pvt. Ltd, Office No. 502, 5th Floor, Abhijeet Society, Dada Patiwadi Road, Naupada, Thane West, Mumbai",
+      "Poornima Co-operative Housing Society, A Wing, 1st Floor, Flat No. 14, Dada Patil Marg, Opposite Thane Station, Thane, Maharashtra",
     pincode: "400602",
-    phone: "8010801095",
+    phone: "+91 95555 95596",
+    contact: "Mr. Raj Luthra",
     email: "sales@green-network.in",
     web: "www.green-network.in",
   },
   {
-    city: "Pune",
+    city: "Bangalore",
     address:
-      "011, 3rd Floor, Shri Hill View, S 77/2, Bhusari Colony, Near Ved Bhavan, Kothrud",
-    pincode: "411038",
-    phone: "8010801095",
+      "347, Srinivasa Towers, 1st Floor, Park Road, B Block, AECS Layout, Bengaluru, Karnataka",
+    pincode: "560037",
+    phone: "+91 96111 22559",
+    contact: "Mr. K. Mahendran",
+    email: "sales@green-network.in",
+    web: "www.green-network.in",
+  },
+  {
+    city: "Chennai",
+    address:
+      "F3, 1st Floor, Jasmin Enclave, Rose Avenue, Dr. Ambedkar Road, LIC Nagar, S. Kolathur, Madipakkam, Chennai, Tamil Nadu",
+    pincode: "600091",
+    phone: "+91 96111 22559",
+    contact: "Mr. K. Mahendran",
+    email: "sales@green-network.in",
+    web: "www.green-network.in",
+  },
+  {
+    city: "Kolkata",
+    address:
+      "AB 293/1, Samarpalli, Kestopur, Kolkata, West Bengal",
+    pincode: "700102",
+    phone: "+91 80108 01095",
+    contact: "Mr. Harish Rai",
     email: "sales@green-network.in",
     web: "www.green-network.in",
   },
@@ -586,6 +582,12 @@ export default function HomePage() {
                   </p>
 
                   <div className="mt-5 space-y-2 border-t border-border pt-4">
+                    {office.contact && (
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <UserRound className="h-3.5 w-3.5 shrink-0 text-[#2563eb]" />
+                        <span className="font-medium text-foreground">{office.contact}</span>
+                      </div>
+                    )}
                     <a
                       href={`tel:${office.phone}`}
                       className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-[#2563eb]"
@@ -663,7 +665,7 @@ export default function HomePage() {
             <FadeIn>
               <div className="rounded-3xl border border-border bg-card p-2 shadow-lg overflow-hidden h-[450px]">
                 <iframe
-                  src="https://maps.google.com/maps?q=Green%20Network%20Telecom%20Pvt%20Ltd,%203rd%20Floor,%20DDA%20Local%20Shopping%20Complex,%20301-302,%20Block%20C,%20Vikaspuri,%20New%20Delhi,%20Delhi%20110018&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                  src="https://maps.google.com/maps?q=301-302+DDA+Local+Shopping+Complex+C-Block+Vikaspuri+New+Delhi+110018&t=&z=16&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0, borderRadius: "1.5rem" }}

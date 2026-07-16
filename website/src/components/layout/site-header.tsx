@@ -113,7 +113,8 @@ export function SiteHeader() {
             width={220}
             height={64}
             priority
-            className="h-12 w-auto object-contain object-left"
+            unoptimized
+            className="h-12 w-auto object-contain object-left dark:brightness-125"
           />
           <span className="hidden sm:flex flex-col leading-none">
             <span className="text-[15px] font-extrabold tracking-[0.08em] uppercase text-foreground">

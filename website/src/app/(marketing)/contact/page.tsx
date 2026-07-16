@@ -1,11 +1,9 @@
-import Image from "next/image";
-import Link from "next/link";
 import {
   Mail,
   Phone,
   MapPin,
   Globe,
-  ArrowRight,
+  UserRound,
 } from "lucide-react";
 
 import { Section } from "@/components/shared/section";
@@ -23,63 +21,49 @@ const offices = [
   {
     city: "Delhi",
     address:
-      "Green Network Telecom Pvt. Ltd, C-9, 3rd Floor, New Krishna Park, Vikas Puri, New Delhi",
+      "301–302, DDA Local Shopping Complex, C-Block, Vikaspuri, New Delhi",
     pincode: "110018",
-    phone: "011-42461227",
-    email: "sales@green-network.in",
-    web: "www.green-network.in",
-  },
-  {
-    city: "Bangalore",
-    address:
-      "Green Network Telecom Pvt. Ltd, No.76, 1st Floor, 6th Main, Hemanth Nagar, Room, Marathahalli, Bangalore",
-    pincode: "560037",
-    phone: "9611122559",
-    email: "sales@green-network.in",
-    web: "www.green-network.in",
-  },
-  {
-    city: "Hyderabad",
-    address:
-      "Green Network Telecom Pvt. Ltd, No. H/2, Madhura Nagar, Opp Krishnakant Park",
-    pincode: "500038",
-    phone: "9611122559",
-    email: "sales@green-network.in",
-    web: "www.green-network.in",
-  },
-  {
-    city: "Chennai",
-    address:
-      "Green Network Telecom Pvt. Ltd, No.04, Maruthi Nagar, Thoraipakkam, Chennai",
-    pincode: "600097",
-    phone: "9611122559",
+    phone: "+91 95555 95596",
+    contact: "Mr. Raj Luthra",
     email: "sales@green-network.in",
     web: "www.green-network.in",
   },
   {
     city: "Mumbai",
     address:
-      "Green Network Telecom Pvt. Ltd, Office No. 502, 5th Floor, Abhijeet Society, Dada Patiwadi Road, Naupada, Thane West, Mumbai",
+      "Poornima Co-operative Housing Society, A Wing, 1st Floor, Flat No. 14, Dada Patil Marg, Opposite Thane Station, Thane, Maharashtra",
     pincode: "400602",
-    phone: "8010801095",
+    phone: "+91 95555 95596",
+    contact: "Mr. Raj Luthra",
     email: "sales@green-network.in",
     web: "www.green-network.in",
   },
   {
-    city: "Pune",
+    city: "Bangalore",
     address:
-      "011, 3rd Floor, Shri Hill View, S 77/2, Bhusari Colony, Near Ved Bhavan, Kothrud",
-    pincode: "411038",
-    phone: "8010801095",
+      "347, Srinivasa Towers, 1st Floor, Park Road, B Block, AECS Layout, Bengaluru, Karnataka",
+    pincode: "560037",
+    phone: "+91 96111 22559",
+    contact: "Mr. K. Mahendran",
+    email: "sales@green-network.in",
+    web: "www.green-network.in",
+  },
+  {
+    city: "Chennai",
+    address:
+      "F3, 1st Floor, Jasmin Enclave, Rose Avenue, Dr. Ambedkar Road, LIC Nagar, S. Kolathur, Madipakkam, Chennai, Tamil Nadu",
+    pincode: "600091",
+    phone: "+91 96111 22559",
+    contact: "Mr. K. Mahendran",
     email: "sales@green-network.in",
     web: "www.green-network.in",
   },
   {
     city: "Kolkata",
-    address:
-      "AB-293/A, Samarpally, Kestopur, Kolkata, West Bengal",
+    address: "AB 293/1, Samarpalli, Kestopur, Kolkata, West Bengal",
     pincode: "700102",
-    phone: "8010801095",
+    phone: "+91 80108 01095",
+    contact: "Mr. Harish Rai",
     email: "sales@green-network.in",
     web: "www.green-network.in",
   },
@@ -108,7 +92,7 @@ export default function ContactPage() {
 
       {/* ── Office Cards ── */}
       <Section className="py-14 md:py-20">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {offices.map((office, i) => (
             <FadeIn key={office.city} delay={i * 0.06}>
               <div className="group flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-[#2563eb]/50 hover:shadow-md">
@@ -133,6 +117,14 @@ export default function ContactPage() {
 
                 {/* Contact details */}
                 <div className="mt-5 space-y-2 border-t border-border pt-4">
+                  {office.contact && (
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <UserRound className="h-3.5 w-3.5 shrink-0 text-[#2563eb]" />
+                      <span className="font-medium text-foreground">
+                        {office.contact}
+                      </span>
+                    </div>
+                  )}
                   <a
                     href={`tel:${office.phone}`}
                     className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-[#2563eb]"
@@ -188,7 +180,7 @@ export default function ContactPage() {
                 <Button
                   asChild
                   size="lg"
-                  className="rounded-full bg-[#2563eb] text-white hover:bg-[#5aad3b]"
+                  className="rounded-full bg-[#2563eb] text-white hover:bg-[#1d4ed8]"
                 >
                   <a href="mailto:sales@green-network.in">
                     <Mail className="mr-2 h-4 w-4" />
@@ -196,11 +188,11 @@ export default function ContactPage() {
                   </a>
                 </Button>
                 <a
-                  href="tel:01142461227"
+                  href="tel:+919555595596"
                   className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-8 text-sm font-medium text-white transition-colors hover:bg-white/20"
                 >
                   <Phone className="h-4 w-4" />
-                  Call 011-42461227
+                  +91 95555 95596
                 </a>
               </div>
             </div>
